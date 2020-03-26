@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-const TodoList = ( {todo} ) => {
+const TodoList = ( {todo, loadings} ) => {
 
-    const list = todo.map( data => <div>{data}</div> )
+    let list = <div>loading...</div>;
+    if(!loadings) list = todo.map( data => <li key={data.id}> {data.id} {data.title} </li> )
 
     return (
-        <div>
+        <ul>
             {list}
-        </div>
+        </ul>
     )
 }
 
