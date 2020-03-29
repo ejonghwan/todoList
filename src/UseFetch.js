@@ -9,6 +9,7 @@ const UseFetch = ( target, url ) => {
         const initData = await response.json();
 
         target(initData)
+        // console.log(initData.completed)
         setLoading(false)
     }
 

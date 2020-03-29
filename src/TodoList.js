@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import Item from './Item'
+import './Line.css'
 
-const TodoList = ( {todo, loadings} ) => {
+const TodoList = ( {todo, loadings, onToggle} ) => {
 
     let list = <div>loading...</div>;
-    if(!loadings) list = todo.map( data => <li key={data.id}> {data.id} {data.title} </li> )
+    if(!loadings) list = todo.map( data => <Item key={data.id} todo={data} onToggle={onToggle}></Item> )
 
     return (
-        <ul>
+        <ul className="ul">
             {list}
         </ul>
     )
