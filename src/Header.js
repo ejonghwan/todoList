@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Header.css'
+import {TodoContext} from "./TodoStore";
 
-const Header = ( {todo} ) => {
+const Header = () => {
+
+    const { todos } = useContext(TodoContext)
+
     return (
-        <div className="header">
-            list length: {todo.length}
-        </div>
+
+            <div className="header">
+                list length: {todos.filter( n => n.completed === true).length}
+            </div>
     )
 }
 

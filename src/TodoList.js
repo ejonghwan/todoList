@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Item from './Item'
 import './Line.css'
+import {TodoContext} from "./TodoStore";
 
-const TodoList = ( {todo, loadings, onToggle} ) => {
+const TodoList = () => {
+
+    const { loadings, todos, handleDelete } = useContext(TodoContext)
 
     let list = <div>loading...</div>;
-    if(!loadings) list = todo.map( data => <Item key={data.id} todo={data} onToggle={onToggle}></Item> )
+    if(!loadings) list = todos.map( data => <Item key={data.id} todo={data} onToggle={handleDelete}></Item> )
 
     return (
         <ul className="ul">

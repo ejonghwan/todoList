@@ -4,26 +4,26 @@ import './App.css';
 import TodoList from "./TodoList";
 import UseFetch from './UseFetch'
 import Header from "./Header";
+import Form from './Form'
 
 
-const App = () => {
+export const TodoContext = React.createContext();
+
+
+const TodoStore = () => {
 
     const [todos, setTodo] = useState(['first']);
-    const [newTodo, setNewtodo] = useState();
+    // const [newTodo, setNewtodo] = useState();
 
 
     const loading = UseFetch(setTodo, 'http://jsonplaceholder.typicode.com/todos')
 
 
-    const handleTodo = (e) => {
-      setNewtodo(e.target.value)
-    }
 
-    const createTodo = (e) => {
-        e.preventDefault()
-        setNewtodo('')
+    const createTodo = (newTodo) => {
         setTodo([...todos, {'title':newTodo, 'id': todos.length+1, 'completed':true}])
         // console.log(todos.completed)
+        // setNewtodo('')
 
     }
 
@@ -51,15 +51,14 @@ const App = () => {
 
 
       return (
-          <div className="custom">
-              <Header todo={todos}/>
-              <form action="">
-                <input type="text" onChange={handleTodo}/>
-                <button onClick={createTodo}>todo</button>
-              </form>
-              <TodoList todo={todos} loadings={loading} onToggle={handleDelete}/>
-          </div>
+          <TodoContext.Provider value={{ todos, createTodo, loading, handleDelete }}>
+              <div className="custom">
+                  <Header />
+                  <Form />
+                  <TodoList />
+              </div>
+          </TodoContext.Provider>
       )
 }
 
-export default App;
+export default TodoStore;
