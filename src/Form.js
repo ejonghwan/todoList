@@ -5,15 +5,19 @@ const Form = () => {
 
     const inputRef = useRef(false)
     const { newTodo, createTodo } = useContext(TodoContext)
+    const divtest = useRef(false)
 
     const addTodoData = (e) => {
         e.preventDefault()
-        // console.log(inputRef.current.checked)
         createTodo(inputRef.current.value)
         inputRef.current.value = '';
+        divtest.current.innerText = 'asdasd'
+
     }
+    console.log(divtest)
     return (
         <div>
+            <div ref={divtest}>hahaha</div>
             <form action="">
                 <input type="text" ref={inputRef} />
                 <button onClick={addTodoData}>todo</button>
