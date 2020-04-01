@@ -12,9 +12,27 @@ export const TodoContext = React.createContext();
 const todoReduser = (todos, {type, payload}) => {
     switch (type) {
         case "ADD_TODO":
-            return ;
+            return [...todos, {'title':payload, 'id': todos.length+1, 'completed':true}];
         case "SET_INIT_DATA":
             return payload;
+
+        case "STATE":
+            return todos.map( data => {
+                // debugger
+                // console.log(data)
+                console.log(data.completed)
+                if(data.id === +payload) {
+                    if(data.completed === true) {
+                        data.completed = false
+                    } else {
+                        data.completed = true
+                    }
+                }
+                return data
+            } );
+
+        default:
+            break;
     }
 }
 
@@ -28,28 +46,27 @@ const TodoStore = () => {
         dispatch({type:"SET_INIT_DATA", payload:initData})
     }
 
+
     const loading = UseFetch(setInitData, 'http://jsonplaceholder.typicode.com/todos')
 
 
-    const createTodo = (newTodo) => {
-        // setTodo([...todos, {'title':newTodo, 'id': todos.length+1, 'completed':true}])
-    }
 
-    const handleDelete = (id) => {
-        // debugger
-        const update = todos.map( data => {
-            if(data.id === +id) {
-                if(data.completed === true) {
-                    data.completed = false
-                } else {
-                    data.completed = true
-                }
-            }
-            return data
-        } )
-        console.log(update)
-        // setTodo(update)
-    }
+    //
+    // const handleDelete = (id) => {
+    //     // debugger
+    //     const update = todos.map( data => {
+    //         if(data.id === +id) {
+    //             if(data.completed === true) {
+    //                 data.completed = false
+    //             } else {
+    //                 data.completed = true
+    //             }
+    //         }
+    //         return data
+    //     } )
+    //     console.log(update)
+    //     // setTodo(update)
+    // }
 
 
 
@@ -59,7 +76,7 @@ const TodoStore = () => {
 
 
       return (
-          <TodoContext.Provider value={{todos, createTodo, loading, handleDelete }}>
+          <TodoContext.Provider value={{todos, dispatch, loading }}>
               <div className="custom">
                   <Header />
                   <Form />

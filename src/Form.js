@@ -4,17 +4,18 @@ import {TodoContext} from './TodoStore'
 const Form = () => {
 
     const inputRef = useRef(false)
-    const { newTodo, createTodo } = useContext(TodoContext)
+    const { newTodo, createTodo, dispatch } = useContext(TodoContext)
     const divtest = useRef(false)
 
     const addTodoData = (e) => {
         e.preventDefault()
-        createTodo(inputRef.current.value)
+        // createTodo(inputRef.current.value)
+        dispatch({type: "ADD_TODO", payload:inputRef.current.value})
         inputRef.current.value = '';
-        divtest.current.innerText = 'asdasd'
+        divtest.current.innerText = 'haha'
 
     }
-    console.log(divtest)
+    // console.log(divtest)
     return (
         <div>
             <div ref={divtest}>hahaha</div>
