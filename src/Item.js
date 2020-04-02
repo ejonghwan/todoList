@@ -10,7 +10,7 @@ const Item = ( {todo} ) => {
     const handleToggle = (e) => {
         const id = e.target.dataset.id;
         dispatch({type:"STATE", payload:id})
-    }
+    };
 
 
     //className을 변수로 뺄수도 있다
