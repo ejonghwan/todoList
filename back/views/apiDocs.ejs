@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <title>Document</title>
+
+    <style>
+
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        ol, ul {list-style: none;}
+        a {text-decoration: none;}
+
+        .b_inner {width: 980px; margin: 60px auto;}
+
+
+        @media screen and (max-width: 1080px) {
+            .b_inner {width: 100%;}
+        }
+
+        
+
+
+    </style>
+
+        
+</head>
+<body>
+    
+    <header>
+        <div class="b_inner">
+            <h1>habit api dosc</h1>
+        </div>
+    </header>
+    <main class="b_inner">
+        <% for(let i = 0; i < data.length; i++) {%>
+            <div>
+                <h2><%= data[i].title %></h2>
+                <ul>
+                    <% for(let f = 0; f < data[i].items.length; f++) {%>
+                        <li><%= data[i].items[f].method %></li>
+                        <li><%= data[i].items[f].mode %></li>
+                        <li>
+                            <span>api</span>
+                            <span>http://localhost:5000</span>
+                            <span><%= data[i].items[f].api %></span>
+                        </li>
+                        <li>
+                            <span>설명</span>
+                            <span><%= data[i].items[f].desc %></span>
+                        </li>
+                        <li>
+                            <span>Query String</span>
+                            <span><%= data[i].items[f].queryString %></span>
+                        </li>
+                        <li>
+                            <span>header</span>
+            
+<div class="code">
+<pre>
+<code class="markdown"><%= data[i].items[f].header %></code>
+</pre>
+</div>
+                        </li>
+                        <li>
+                            <span>body</span>
+<div class="code">
+<pre>
+<code class="json"><%= data[i].items[f].body %></code>
+</pre>
+</div>
+                            <!-- <span><%= data[i].items[f].body %></span> -->
+                        </li>
+                        <li>
+                            <span><%= data[i].items[f].success %></span>
+                            <span>성공</span>
+                        </li>
+                        <li>
+                            <span><%= data[i].items[f].frontFailure %></span>
+                            <span>잘못된 요청</span>
+                        </li>
+                        <li>
+                            <span><%= data[i].items[f].backFailure %></span>
+                            <span>잘못된 응답</span>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+
+    </main>
+
+    <footer>
+        <div class="b_inner"> hoho footer</div>
+    </footer>
+
+
+</body>
+</html>
