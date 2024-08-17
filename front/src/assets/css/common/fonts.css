@@ -1,0 +1,26 @@
+.en { font-family: jetBrainsMono, Arial, Helvetica, sans-serif; }
+
+
+@font-face {
+   font-family: "jetBrainsMono";
+   font-weight: 200;
+   src: url("../../../../public/fonts/JetBrainsMono-Thin.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "jetBrainsMono";
+   font-weight: 400;
+   src: url("../../../../public/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "jetBrainsMono";
+   font-weight: 600;
+   src: url("../../../../public/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "jetBrainsMono";
+   font-weight: 800;
+   src: url("../../../../public/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}

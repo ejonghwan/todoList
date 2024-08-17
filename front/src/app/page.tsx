@@ -1,10 +1,12 @@
 
 import MainPage from "@/app/main/page";
 
-export default function Home() {
+const App = () => {
   return (
-    <main>
+    <>
       <MainPage />
-    </main>
-  );
+    </>
+  )
 }
+
+export default App
