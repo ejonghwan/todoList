@@ -1,8 +1,29 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+// import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import "@/assets/css/common/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// import Header from "@/components/Header";
+import PageTransition from "@/lib/animation/PageTransition";
+import StairTransition from "@/lib/animation/StairTransition";
+import Header from "@/components/common/header/Header";
+import Footer from "@/components/common/footer/Footer";
+
+// const inter = Inter({ subsets: ["latin"] });
+// const JetBrainsMono = JetBrains_Mono({ 
+//   subsets: ["latin"], 
+//   weight: ["100", "200", "300", "400", "500", "600" ,"700", "800"],
+//   variable: '--font-jetbrainsMono'
+// });
+
+const pretendard = localFont({
+  src: "../../public/fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-pretendard",
+});
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +36,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ko" className={`${pretendard.variable}`}>
+      <body className={pretendard.className}>
+        <Header />
+        <StairTransition />
+        <PageTransition>
+          {children}
+        </PageTransition>
+        <Footer />
+      </body>
     </html>
   );
 }
