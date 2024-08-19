@@ -87,3 +87,10 @@ body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width:
 
 
  
+
+
+
+/* media query */
+@media screen {
+  
+}
