@@ -26,27 +26,22 @@ const pretendard = localFont({
 });
 
 
-
 export const metadata: Metadata = {
   title: "하지만 다 했죠?",
   description: "하지만 다 했죠?",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang="ko" className={`${pretendard.variable}`}>
+    <html lang="ko" className={`${pretendard.variable}`} data-mode="light">
       <body className={pretendard.className}>
         <div id="wrap">
           <Header />
           <main id="contents">
-            <StairTransition />
-            <PageTransition>
+            {/* <StairTransition /> */}
+            {/* <PageTransition> */}
               {children}
-            </PageTransition>
+            {/* </PageTransition> */}
           </main>
           <Footer />
         </div>

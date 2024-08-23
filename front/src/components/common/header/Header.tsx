@@ -1,19 +1,23 @@
 import React from 'react'
-import '@/assets/css/common/header.css'
+import ContentWrap from '@/components/common/contents-wrap/ContentWrap'
+import '@/assets/css/common/common.css'
+import Link from 'next/link'
 
 const Header = () => {
   return (
     <header id='header'>
-      <div className='header-inner'>
-         <h1>logo</h1>
-         <ul className='header-inner-items'>
-            <li>메뉴1</li>
-            <li>메뉴2</li>
-            <li>메뉴3</li>
-            <li>메뉴4</li>
-            <li>메뉴5</li>
-         </ul>
-      </div>
+      <ContentWrap>
+         <div className='header-inner'>
+            <h1><Link href="/">logo</Link></h1>
+            <ul className='header-inner-items'>
+               <li><Link href="/about">about</Link></li>
+               <li>메뉴2</li>
+               <li>메뉴3</li>
+               <li>메뉴4</li>
+               <li>메뉴5</li>
+            </ul>
+         </div>
+      </ContentWrap>
     </header>
   )
 }

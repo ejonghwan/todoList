@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer id='footer'>Footer</footer>
+    <footer id='footer'>
+      <div className='contents-wrapper'>hoho footer</div>
+    </footer>
   )
 }
 

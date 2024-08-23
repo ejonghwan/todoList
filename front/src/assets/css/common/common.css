@@ -1,0 +1,11 @@
+
+
+/* header */
+#header { width: 100%; border-bottom: 1px solid var(--bg-gray1); }
+.header-inner { display: flex; justify-content: space-between; padding: 20px 0; }
+.header-inner .header-inner-items { display: flex; }
+
+
+
+/* section */
+.section {padding: 40px 0;}

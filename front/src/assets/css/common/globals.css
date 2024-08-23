@@ -1,7 +1,7 @@
 
 
 /* dark mode */
-:root[data-color=light] {
+:root[data-mode=light] {
   --point-color: #448deb;
   --point-color2: #cf1f1f;
   --bg-color1: white;
@@ -9,10 +9,11 @@
 }
 
 
-:root[data-color=dark] {
+:root[data-mode=dark] {
   --point-color: #448deb;
   --point-color2: #cf1f1f;
   --bg-color1: black;
+  --bg-gray1: #ddd;
 }
 
 
@@ -44,7 +45,7 @@ body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width:
 #header { flex: 0 0 auto; }
 #contents { flex: 1 1 100%; }
 #footer { flex: 0 0 auto; }
-
+.content-wrap { margin: 0 auto; width: 1100px; }
 
 
 
@@ -103,4 +104,6 @@ body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width:
   .pc { display: none; }
   .mo-flex { display: flex; }
   .pc-flex { display: none; }
+
+  .contents-wrapper { width: 100%; }
 }
