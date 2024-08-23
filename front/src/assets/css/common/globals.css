@@ -5,6 +5,7 @@
   --point-color: #448deb;
   --point-color2: #cf1f1f;
   --bg-color1: white;
+  --bg-gray1: #ddd;
 }
 
 
@@ -90,7 +91,16 @@ body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width:
 
 
 
+
 /* media query */
-@media screen {
-  
+.mo { display: none; }
+.pc { display: block; }
+.mo-flex { display: none; }
+.pc-flex { display: flex; }
+
+@media (max-width: 1024px) {
+  .mo { display: block; }
+  .pc { display: none; }
+  .mo-flex { display: flex; }
+  .pc-flex { display: none; }
 }
