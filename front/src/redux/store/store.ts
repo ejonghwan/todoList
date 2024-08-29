@@ -1,7 +1,14 @@
+
+
 import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "@/redux/slices/auth-slice";
+import { useSelector, TypedUseSelectorHook } from "react-redux";
 
 export const store = configureStore({
   reducer: {
-    //여기에 추후에 리듀서를 넣어둔다.
+    authReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
