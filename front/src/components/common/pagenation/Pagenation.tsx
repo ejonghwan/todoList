@@ -6,8 +6,8 @@ const Pagenations = ({ allLength, pageNum, setPageNum }) => {
 
     const [pageGroupMinLen, setPageGroupMinLen] = useState(0); //0부터 +-
     const [pageGroupMaxLen, setPageGroupMaxLen] = useState(1);  //1부터 +-
-    const pageGroupNumberRef = useRef(5); // 보여지는 페이징 숫자.
-    const test = useRef(5); // 보여지는 페이징 숫자.
+    const pageGroupNumberRef = useRef(9); // 보여지는 아이템 갯수 .
+    const test = useRef(Math.ceil(11 / 5) ); // 보여지는 페이징 숫자.
 
     const handlePrevPageGroup = () => {
         setPageGroupMinLen(prev => prev - 1);
@@ -22,7 +22,9 @@ const Pagenations = ({ allLength, pageNum, setPageNum }) => {
     };
 
     return (
+        <>
         <div className='page_number_wrap'> 
+            <div>item ? : {((pageGroupNumberRef.current * pageNum + 1) - pageGroupNumberRef.current)}~{(pageGroupNumberRef.current + 1) * pageNum}</div>
             <div className='prev_btn_wrap' style={{ border: '1px solid red' }}>
                 <Button 
                     onClick={handlePrevPageGroup}
@@ -57,7 +59,40 @@ const Pagenations = ({ allLength, pageNum, setPageNum }) => {
                 </Button>
             </div>
         </div>
+
+
+
+            {Array( Math.ceil(allLength / pageGroupNumberRef.current) ).fill(null).map((_, idx) => {
+                return (
+                    <Fragment key={idx}>
+                        {idx >= (pageGroupMinLen * pageGroupNumberRef.current / 2) && idx < (pageGroupMaxLen * pageGroupNumberRef.current / 2) && (
+                            <Button 
+                                className={`button_reset page_number_item hover_type1 ${pageNum === idx + 1 ? 'active' : ''}`}
+                                onClick={() => setPageNum(idx + 1)}
+                            >{idx + 1}</Button>
+                        )}
+                    </Fragment>
+                );
+            })}
+
+
+
+        </>
     );
 };
 
 export default Pagenations;
+
+
+
+//1.  1~9
+//2.  10~18
+//3.  19~27
+//4.  28~36
+//5.  37~45
+//6.  46~54 
+//7.  55~63
+//8.  64~72
+//9.  73~81
+//10.  82~90
+//11.  91 
