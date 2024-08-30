@@ -90,6 +90,17 @@ body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width:
 
  
 
+.blind {position: absolute;
+  left: -99999px;
+  top: -99999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin-left: -1px;
+  border: 0 none !important;
+  background: transparent !important;
+  color: transparent !important;}
+
 
 
 

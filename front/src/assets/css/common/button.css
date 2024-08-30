@@ -1,0 +1,469 @@
+[class*=button_type] {
+   display: inline-block;
+   position: relative;
+   padding: 13px 32px;
+   border: 1px solid transparent;
+   border-radius: 56px;
+   text-align: center;
+   vertical-align: middle;
+   cursor: pointer;
+   font-weight: 500;
+   font-size: 1.5rem;
+   white-space: nowrap;
+   color: var(--text-color1);
+   background-color: var(--bg-box-color1);
+   filter: saturate(90%);
+   
+}
+
+[class*=button_type]:hover {
+   filter: saturate(150%);
+   
+}
+
+.button_reset {
+   border: none;
+   cursor: pointer;
+   background-color: var(--bg-color-white);
+   color: var(--text-color1);
+}
+
+
+.btn_wrap {
+   width: 100%;
+}
+
+.btn_wrap > button + button {
+   margin-left: 5px;
+}
+
+
+.button_type1 {
+   color: var(--text-color1);
+   background-color: var(--bg-box-color1);
+}
+
+.button_type2 {
+   color: var(--text-color-white);
+   background-color: var(--point-color);
+}
+
+.button_type3 {
+   color: var(--text-color1);
+   background-color: transparent;
+   padding: 0px;
+   font-size: inherit;
+   line-height: 0;
+}
+
+/* svg or img btn */
+.button_type4 {
+   border-radius: 50%;
+   padding: 10px;
+   line-height: 0;
+}
+
+/* 중요한 혹은 위험한. 레드 버튼 */
+.button_type5 {
+   background-color: var(--point-color2);
+   color: var(--text-color-white);
+}
+
+/* 정말 작은 버튼 */
+.button_type6 {
+   background-color: var(--point-color);
+   color: var(--text-color-white);
+   padding: 5px 10px;
+   border-radius: 8px;
+   font-size: 1.3rem;
+}
+
+.button_type7 {
+   background-color: var(--point-color);
+   color: var(--text-color-white);
+   padding: 8px 16px;
+   border-radius: 20px;
+   font-size: 1.3rem;
+}
+
+button.line {
+   border: 1px solid var(--line-color2);
+   background-color: transparent;
+   color: var(--text-color1);
+}
+
+button.line:hover {
+   background-color: var(--hover-color);
+}
+
+
+
+[class*=button_type].danger {
+   background-color: var(--point-color2);
+   color: var(--text-color-white);
+}
+
+
+
+
+
+/* 텍스트 버튼 */
+.button_type_txt {
+   padding: 0;
+   text-decoration: underline;
+   font-weight: 500;
+   color: var(--point-color);
+   font-size: inherit;
+}
+
+.button_type_txt2 {
+   padding: 0;
+   font-weight: 500;
+   color: var(--text-color1);
+   font-size: 1.3rem;
+   background-color: transparent;
+}
+
+.button_type_search {
+   
+}
+
+/* 취소하기 버튼. 라인 */
+.button_type_cancel {
+   background-color: var(--bg-box-white);
+   border: 1px solid var(--line-color2);
+   color: var(--text-color1);
+   font-size: inherit;
+}
+
+/* x 버튼 */
+.button_type_close {
+   position: relative;
+   background-color: transparent;
+   width: 30px;
+   height: 30px;
+}
+
+.button_type_close::before {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   transform-origin: center center;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button_type_close::after {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   transform-origin: center center;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* x 버튼 */
+.button_type_success {
+   position: relative;
+   background-color: transparent;
+   width: 30px;
+   height: 30px;
+}
+
+.button_type_success::before {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   transform-origin: center center;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.button_type_success::after {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   transform-origin: center center;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.button_type_arrow_r,
+.button_type_arrow_l  {
+   position: relative;
+   width: 20px;
+   height: 20px;
+   padding: 0;
+   border-radius: 50%;
+   /* background-color: var(--bg-box-white); */
+}
+
+.button_type_arrow_r:disabled,
+.button_type_arrow_l:disabled {
+   opacity: .5;
+   background-color: transparent;
+} 
+
+.button_type_arrow_r::before {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 7px;
+   /* transform-origin: right center; */
+   left: 50%;
+   transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.button_type_arrow_r::after {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 7px;
+   /* transform-origin: right center; */
+   left: 50%;
+   transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.button_type_arrow_l::before {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 7px;
+   /* transform-origin: left center; */
+   right: 50%;
+   transform: rotate(135deg) translate(-50%, -50%);
+}
+
+.button_type_arrow_l::after {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 7px;
+   /* transform-origin: left center; */
+   right: 50%;
+   transform: rotate(-135deg) translate(-50%, -50%);
+}
+
+
+button:disabled {
+   background: var(--disabled-bg-color);
+   color: var(--disabled-color);
+   pointer-events: none;
+}
+
+/* 
+.button_delete {
+   padding: 10px;
+   position: relative;
+   background-color: var(--bg-box-color1);
+   border-radius: 50%;
+   margin-left: 3px;
+}
+
+.button_delete::after {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   background-color: var(--text-color2);
+   width: 1px;
+   height: 9px;
+   transform-origin: 50% 50%;
+   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.button_delete::before {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   background-color: var(--text-color2);
+   width: 1px;
+   height: 9px;
+   transform-origin: 50% 50%;
+   transform: translate(-50%, -50%) rotate(45deg);
+} */
+
+
+
+.button_delete {
+   width: 25px;
+   height: 25px;
+   position: relative;
+   border-radius: 50%;
+   background-color: var(--bg-box-color1);
+   margin-left: 3px;
+}
+
+.button_delete::after {
+   content: '';
+   display: block;
+   width: 1px;
+   height: 10px;
+   background-color: var(--text-color2);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.button_delete::before {
+   content: '';
+   display: block;
+   width: 1px;
+   height: 10px;
+   background-color: var(--text-color2);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button_delete2 {
+   width: 40px;
+   height: 40px;
+   position: relative;
+   /* background-color: var(--bg-box-color1); */
+   border-radius: 50%;
+   margin-left: 3px;
+}
+
+.button_delete2::after {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background-color: var(--text-color2);
+   width: 1px;
+   height: 20px;
+   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.button_delete2::before {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background-color: var(--text-color2);
+   width: 1px;
+   height: 20px;
+   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+
+.button_plus {
+   /* padding: 10px; */
+   position: relative;
+   background-color: var(--bg-box-color1);
+   border-radius: 40%;
+   margin-left: 3px;
+   width: 30px;
+   height: 30px;
+}
+
+.button_plus::after {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background-color: var(--text-color2);
+   width: 1px;
+   height: 12px;
+   transform: translate(-50%, -50%);
+}
+
+.button_plus::before {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background-color: var(--text-color2);
+   width: 1px;
+   height: 12px;
+   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+
+.button_more {
+   padding: 13px 40px 13px 25px !important;
+   background-color: transparent;
+}
+
+
+
+
+
+/* x 버튼 */
+/* .button_type_close {
+   position: relative;
+}
+
+.button_type_close::before {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   left: 50%;
+   transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.button_type_close::after {
+   background-color: var(--arrow-color);
+   content: "";
+   display: block;
+   height: 1px;
+   position: absolute;
+   top: 50%;
+   width: 15px;
+   left: 50%;
+   transform: rotate(-45deg) translate(-50%, -50%);
+} */
+
+@media screen and (max-width: 760px) {
+   .button_type_close::after {
+       width: 25px;
+   }
+   .button_type_close::before {
+       width: 25px;
+   }
+
+}

@@ -37,6 +37,8 @@ const Visual = ({ name }: {name: string} ) => {
       <button className={style.buttonStyle} onClick={onClickLogOut}>
         Log Out
       </button>
+
+      
     </div>
   )
 }
