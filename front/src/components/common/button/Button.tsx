@@ -1,17 +1,22 @@
 import '@/assets/css/common/button.css';
+// interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+//     additionalProps: string;
+//   }
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    additionalProps: string;
+    onClick: () => void;
+  }
 
-const Button = ({ id, className, type, disabled, onClick, children, name, title }) => {
+
+interface Props {
+    children: React.ReactElement;
+    props: ButtonProps
+}
+
+const Button = ({ children, props }: Props) => {
 
     return (
-        <button 
-            id={id} 
-            type={type} 
-            className={className} 
-            onClick={onClick} 
-            disabled={disabled}
-            name={name}
-            title={title}
-            >
+        <button {...props}>
             {children}
         </button>
     )

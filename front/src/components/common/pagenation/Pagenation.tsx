@@ -2,7 +2,13 @@ import { Fragment, useRef, useState } from 'react';
 import Button from '@/components/common/button/Button';
 import '@/assets/css/common/Pagenation.css';
 
-const Pagenations = ({ allLength, pageNum, setPageNum }) => {
+interface Props {
+    allLength: number;
+    pageNum: number;
+    setPageNum: (n: number) => void;
+}
+
+const Pagenations = ({ allLength, pageNum, setPageNum }: Props) => {
 
     const [pageGroupMinLen, setPageGroupMinLen] = useState(0); //0부터 +-
     const [pageGroupMaxLen, setPageGroupMaxLen] = useState(1);  //1부터 +-
@@ -27,6 +33,7 @@ const Pagenations = ({ allLength, pageNum, setPageNum }) => {
             <div>item ? : {((pageGroupNumberRef.current * pageNum + 1) - pageGroupNumberRef.current)}~{(pageGroupNumberRef.current + 1) * pageNum}</div>
             <div className='prev_btn_wrap' style={{ border: '1px solid red' }}>
                 <Button 
+                    
                     onClick={handlePrevPageGroup}
                     disabled={pageGroupMinLen === 0 && true}
                     className={'button_reset button_type4 button_type_arrow_l hover_type1'}
