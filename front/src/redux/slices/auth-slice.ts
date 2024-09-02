@@ -13,6 +13,8 @@ type AuthState = {
   isModerator: boolean; // 관리자 계정인가요?
 };
 
+
+
 // 로그인 되지 않은 상태
 const initialState = {
   value: {
@@ -22,6 +24,8 @@ const initialState = {
     isModerator: false,
   } as AuthState,
 } as InitialState;
+
+
 
 export const auth = createSlice({
   name: "auth", // slice name
