@@ -14,6 +14,16 @@ type AuthState = {
 };
 
 
+const getUser = async () => {
+  let data = await fetch('http://localhost:8080/api/project')
+  let posts = await data.json()
+
+  console.log('pp?', posts)
+}
+
+getUser();
+
+
 
 // 로그인 되지 않은 상태
 const initialState = {
