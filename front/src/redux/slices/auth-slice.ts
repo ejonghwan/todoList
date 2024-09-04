@@ -20,6 +20,12 @@ export const fetchHoho = createAsyncThunk('hoho/hohozzz', async () => {
 	return posts
 });
 
+export const fetchHoho2 = createAsyncThunk('hoho/hohozzz', async () => {
+  let data = await fetch('http://localhost:8080/api/project')
+  let posts = await data.json()
+	return posts
+});
+
 const getUser = async () => {
   let data = await fetch('http://localhost:8080/api/project')
   let posts = await data.json()
@@ -63,19 +69,43 @@ export const auth = createSlice({
     
   },
 
-  extraReducers: {
-		[fetchHoho.pending]: (state) => {
-			state.isLoading = true;
-		},
-		[fetchHoho.fulfilled]: (state, action) => {
-			state.isLoading = false;
-			state.data = action.payload;
-		},
-		[fetchHoho.rejected]: (state, action) => {
-			state.isLoading = false;
-			state.data = action.payload;
-		},
-	},
+  extraReducers: (builder) => {
+
+    builder
+      .addCase(fetchHoho.pending, state => {
+        state.value.isAuth = false
+      })
+      .addCase(fetchHoho.fulfilled, state => {
+        state.value.isAuth = false
+      })
+      .addCase(fetchHoho.rejected, state => {
+        state.value.isAuth = false
+      })
+      // .addCase(fetchHoho2.pending, state => {
+      //   state.value.isAuth = false
+      // })
+      // .addCase(fetchHoho2.fulfilled, state => {
+      //   state.value.isAuth = false
+      // })
+      // .addCase(fetchHoho2.rejected, state => {
+      //   state.value.isAuth = false
+      // })
+
+      console.log('aa??', builder)
+  },
+  // extraReducers: {
+	// 	[fetchHoho.pending]: (state) => {
+	// 		state.isLoading = true;
+	// 	},
+	// 	[fetchHoho.fulfilled]: (state, action) => {
+	// 		state.isLoading = false;
+	// 		state.data = action.payload;
+	// 	},
+	// 	[fetchHoho.rejected]: (state, action) => {
+	// 		state.isLoading = false;
+	// 		state.data = action.payload;
+	// 	},
+	// },
 });
 
 export const { logIn, logOut } = auth.actions;
