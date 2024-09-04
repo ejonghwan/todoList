@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 
 
 type InitialState = {
@@ -14,13 +14,18 @@ type AuthState = {
 };
 
 
+export const fetchHoho = createAsyncThunk('hoho/hohozzz', async () => {
+  let data = await fetch('http://localhost:8080/api/project')
+  let posts = await data.json()
+	return posts
+});
+
 const getUser = async () => {
   let data = await fetch('http://localhost:8080/api/project')
   let posts = await data.json()
 
   console.log('pp?', posts)
 }
-
 getUser();
 
 
@@ -57,6 +62,20 @@ export const auth = createSlice({
     },
     
   },
+
+  extraReducers: {
+		[fetchHoho.pending]: (state) => {
+			state.isLoading = true;
+		},
+		[fetchHoho.fulfilled]: (state, action) => {
+			state.isLoading = false;
+			state.data = action.payload;
+		},
+		[fetchHoho.rejected]: (state, action) => {
+			state.isLoading = false;
+			state.data = action.payload;
+		},
+	},
 });
 
 export const { logIn, logOut } = auth.actions;
