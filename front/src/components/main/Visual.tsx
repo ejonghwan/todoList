@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store/store";
-import { logOut, logIn } from "@/redux/slices/auth-slice";
 
 const Visual = ({ name }: {name: string} ) => {
 
@@ -15,13 +14,13 @@ const Visual = ({ name }: {name: string} ) => {
     inputStyle: "m-4 border-2 border-blue-400 ",
   };
 
-  const onClickLogIn = () => {
-    dispatch(logIn(username));
-  };
+  // const onClickLogIn = () => {
+  //   dispatch(logIn(username));
+  // };
   
-  const onClickLogOut = () => {
-    dispatch(logOut());
-  };
+  // const onClickLogOut = () => {
+  //   dispatch(logOut());
+  // };
 
 
   return (
@@ -31,12 +30,7 @@ const Visual = ({ name }: {name: string} ) => {
         type="text"
         onChange={(e) => setUsername(e.target.value)}
       />
-      <button className={style.buttonStyle} onClick={onClickLogIn}>
-        Log In
-      </button>
-      <button className={style.buttonStyle} onClick={onClickLogOut}>
-        Log Out
-      </button>
+    
 
       
     </div>
