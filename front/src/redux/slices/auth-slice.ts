@@ -21,7 +21,7 @@ const initialState: InitialState = {
 
 
 // 유저 회원 가입
-export const fetchHoho = createAsyncThunk('auth/signupUser', async (userData: SignupUser) => {
+export const signupApi = createAsyncThunk('auth/signupUser', async (userData: SignupUser): Promise<void> => {
 
   const { id, password, email, name, question, gender, birthday } = userData;
     
@@ -33,19 +33,29 @@ export const fetchHoho = createAsyncThunk('auth/signupUser', async (userData: Si
   const colors = ['#428f80', '#42788f', '#428f4d', '#7e8f42', '#8f8942', '#955877', '#4468a9', '#44a9a5', '#50844b', '#4b7e84',]
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   
-  const config = {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-  };
 
   const options = {
     cache: 'no-store', 
-    method: 'POST',
-    body: JSON.stringify({ ...userData, darkMode: initTheme, profileImage: { bg: randomColor, firstString: id.slice(0, 1) } }),
-    headers: config
+    // method: 'POST',
+    // body: JSON.stringify({ ...userData, darkMode: initTheme, profileImage: { bg: randomColor, firstString: id.slice(0, 1) } }),
+   
+    // headers: { "Content-Type": "application/json" },
+    // withCredentials: true,
+    // credentials: true,
+    
+    // 이 호출과 일치하는 과부하가 없습니다.
+    // 오버로드 1/2, '(입력: 문자열 | URL | 요청, init?: RequestInit | 정의되지 않음): Promise<Response>'에서 다음 오류가 발생했습니다.
+    //   '{ 캐시: 문자열; 유형의 인수 방법: 문자열; 본문: 문자열; 헤더: { "콘텐츠 유형": 문자열; }; 자격 증명: 부울; }'는 'RequestInit' 유형의 매개변수에 할당할 수 없습니다.
+    //     '캐시' 속성 유형이 호환되지 않습니다.
+    //       'string' 유형은 'RequestCache | 한정되지 않은'.
+    // 2개 중 2개 오버로드, '(input: URL | RequestInfo, init?: RequestInit | 정의되지 않음): Promise<Response>'에서 다음 오류가 발생했습니다.
+    //   '{ 캐시: 문자열; 유형의 인수 방법: 문자열; 본문: 문자열; 헤더: { "콘텐츠 유형": 문자열; }; 자격 증명: 부울; }'은(는) 'RequestInit' 유형의 매개변수에 할당할 수 없습니다.ts(2769)
+
   }
 
-  const user = await fetch(`${host}/api/users/signup`, options);
+  // const res = await fetch(`${host}/api/users/signup`, options );
+  const res = await fetch(`${host}/api/users/signup`, { next: { revalidate: 3600 } } );
+  const user = res.json();
   return user;
 });
 
