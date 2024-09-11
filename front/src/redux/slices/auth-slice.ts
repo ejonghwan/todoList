@@ -43,14 +43,6 @@ export const signupApi = createAsyncThunk('auth/signupUser', async (userData: Si
     // withCredentials: true,
     // credentials: true,
     
-    // 이 호출과 일치하는 과부하가 없습니다.
-    // 오버로드 1/2, '(입력: 문자열 | URL | 요청, init?: RequestInit | 정의되지 않음): Promise<Response>'에서 다음 오류가 발생했습니다.
-    //   '{ 캐시: 문자열; 유형의 인수 방법: 문자열; 본문: 문자열; 헤더: { "콘텐츠 유형": 문자열; }; 자격 증명: 부울; }'는 'RequestInit' 유형의 매개변수에 할당할 수 없습니다.
-    //     '캐시' 속성 유형이 호환되지 않습니다.
-    //       'string' 유형은 'RequestCache | 한정되지 않은'.
-    // 2개 중 2개 오버로드, '(input: URL | RequestInfo, init?: RequestInit | 정의되지 않음): Promise<Response>'에서 다음 오류가 발생했습니다.
-    //   '{ 캐시: 문자열; 유형의 인수 방법: 문자열; 본문: 문자열; 헤더: { "콘텐츠 유형": 문자열; }; 자격 증명: 부울; }'은(는) 'RequestInit' 유형의 매개변수에 할당할 수 없습니다.ts(2769)
-
   }
 
   // const res = await fetch(`${host}/api/users/signup`, options );
