@@ -3,11 +3,11 @@ import { InitialState, SignupUser } from '@/type/reducer/auth'
 
 
 
-
 const host = process.env.REACT_APP_BACKEND_HOST;
 const initialState: InitialState = {
   isLoggedIn: false,
   isModerator: false,
+  data: [],
   user: {
     id: '', 
     email: '', 
@@ -35,21 +35,39 @@ export const signupApi = createAsyncThunk('auth/signupUser', async (userData: Si
   
 
   const options = {
-    cache: 'no-store', 
-    // method: 'POST',
-    // body: JSON.stringify({ ...userData, darkMode: initTheme, profileImage: { bg: randomColor, firstString: id.slice(0, 1) } }),
-   
-    // headers: { "Content-Type": "application/json" },
-    // withCredentials: true,
+    method: 'POST',
+    body: JSON.stringify({ ...userData, darkMode: initTheme, profileImage: { bg: randomColor, firstString: id.slice(0, 1) } }),
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
     // credentials: true,
-    
+
   }
 
-  // const res = await fetch(`${host}/api/users/signup`, options );
-  const res = await fetch(`${host}/api/users/signup`, { next: { revalidate: 3600 } } );
+
+  const res = await fetch(`${host}/api/users/signup`, { cache: 'no-store', next: { revalidate: 3600 }, ...options } );
   const user = res.json();
   return user;
 });
+
+
+
+export const test = createAsyncThunk('auth/test', async (n): Promise<void> => {
+
+  const options = {
+    method: 'GET',
+    // body: JSON.stringify({ ...userData, darkMode: initTheme, profileImage: { bg: randomColor, firstString: id.slice(0, 1) } }),
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
+    // credentials: true,
+
+  }
+
+
+  const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${n}`, { cache: 'no-store', next: { revalidate: 3600 }, ...options } );
+  const user = res.json();
+  return user;
+});
+
 
 
 
@@ -64,13 +82,27 @@ export const auth = createSlice({
   extraReducers: (builder) => {
 
     builder
-      .addCase(fetchHoho.pending, state => {
+      .addCase(signupApi.pending, state => {
         state.isLoggedIn = false
       })
-      .addCase(fetchHoho.fulfilled, state => {
+      .addCase(signupApi.fulfilled, state => {
         state.isLoggedIn = false
       })
-      .addCase(fetchHoho.rejected, state => {
+      .addCase(signupApi.rejected, state => {
+        state.isLoggedIn = false
+      })
+
+
+    builder
+      .addCase(test.pending, state => {
+        state.isLoggedIn = false
+      })
+      .addCase(test.fulfilled, (state, action) => {
+        state.isLoggedIn = true
+        state.data = [...state.data, action.payload]
+        console.log('data?', state, action.payload)
+      })
+      .addCase(test.rejected, (state, action) => {
         state.isLoggedIn = false
       })
 

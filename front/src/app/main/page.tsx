@@ -7,23 +7,31 @@ import Visual from '@/components/main/Visual'
 import Pagenations from '@/components/common/pagenation/Pagenation'
 
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { test } from "@/redux/slices/auth-slice"
 
 
 const MainPage = () => {
 
-    const { username, uid, isAuth } = useSelector((state: any) => state.authReducer.value);
+    const { isLoggedIn, data } = useSelector((state: any) => state.authReducer);
     
     const [n, setN] = useState(1)
+
+    const dispatch = useDispatch()
+    const handleApiTest = () => {
+        setN(prev => prev + 1)
+        dispatch(test(n))
+    }
     return (
         <>
             <ContentWrap>
                 <Section>
-                    sec 1
+                    asdasd
+                    {/* sec 1
                     ?? {isAuth ? 'true' : 'false'}
                     <h1 className="text-2xl">UserName : {username}</h1>
-                     <h1 className="text-2xl">uid : {uid}</h1>
-                    <Visual name={username} />
+                     <h1 className="text-2xl">uid : {uid}</h1> */}
+                    {/* <Visual name={username} /> */}
                 </Section>
                 <Section>
                     sec 2
@@ -36,6 +44,9 @@ const MainPage = () => {
                 </Section>
                 <Section>
                     sec 3
+                    <div>isLoggedIn ?? {isLoggedIn ? 'true' : 'false'}</div>
+                    <div>{data?.map(item => <div key={item.key}>{item.title}</div>)}</div>
+                    <button type="button" onClick={handleApiTest}>zzz api</button>
                 </Section>
                 <Section>
                     sec 4
