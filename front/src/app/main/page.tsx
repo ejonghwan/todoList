@@ -45,7 +45,7 @@ const MainPage = () => {
                 <Section>
                     sec 3
                     <div>isLoggedIn ?? {isLoggedIn ? 'true' : 'false'}</div>
-                    <div>{data?.map(item => <div key={item.key}>{item.title}</div>)}</div>
+                    <div>{data?.map((item: { completed: boolean; id: number; title: string; userId: number }, idx: number) => <div key={idx}>{item.title}</div>)}</div>
                     <button type="button" onClick={handleApiTest}>zzz api</button>
                 </Section>
                 <Section>

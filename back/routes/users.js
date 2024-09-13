@@ -144,7 +144,6 @@ router.post('/signup', async (req, res) => {
         if(!email || typeof email !== 'string') return res.status(400).json({message:'이메일이 없습니다'});
         if(!name || typeof name !== 'string') return res.status(400).json({message:'이름이 없습니다.'});
         if(!question || typeof question !== 'object') return res.status(400).json({message:'질문과 답이 없습니다.'});
-        if(!phoneNumber || typeof phoneNumber !== 'string') return res.status(400).json({message:'휴대폰 번호가 없습니다.'});
         if(!gender || typeof gender !== 'string') return res.status(400).json({message:'성별이 없습니다.'});
         if(!birthday || typeof birthday !== 'string') return res.status(400).json({message:'생년월일이 없습니다.'});
 
