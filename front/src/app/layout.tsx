@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 // import { JetBrains_Mono } from "next/font/google";
+
+import Providers from "@/store/utils/provider";
+
 import localFont from "next/font/local";
 import "@/assets/css/common/reset.css"
 import "@/assets/css/common/fonts.css"
@@ -31,21 +34,23 @@ export const metadata: Metadata = {
   description: "하지만 다 했죠?",
 };
 
+
 export default function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="ko" className={`${pretendard.variable}`} data-mode="light">
       <body className={pretendard.className}>
-
-        <div id="wrap">
-          <Header />
-          <main id="contents">
-            {/* <StairTransition /> */}
-            {/* <PageTransition> */}
-              {children}
-            {/* </PageTransition> */}
-          </main>
-          <Footer />
-        </div>
+        <Providers>
+          <div id="wrap">
+            <Header />
+            <main id="contents">
+              {/* <StairTransition /> */}
+              {/* <PageTransition> */}
+                {children}
+              {/* </PageTransition> */}
+            </main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );
