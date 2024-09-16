@@ -8,12 +8,16 @@ const Test2 = () => {
 
    const [val, setVal] = useState([])
 
-   const { isLoading, error, data } = useQuery({ queryKey: ['posts'], queryFn: getPosts} )
+   // const { isLoading, error, data } = useQuery({ queryKey: ['posts'], queryFn: getPosts} )
+   const { isLoading, error, data } = useQuery({ queryKey: ['posts']} )
         
 
    //test 2 
    const clientValue = useQuery({ queryKey: ['poosts'], queryFn: getPosts });
 
+
+
+  
   return (
     <div>
       <h2>test2 compo</h2>
@@ -30,6 +34,7 @@ const Test2 = () => {
          </div>
 
          <div>
+            {clientValue.isLoading && <div>...loading</div>}
             {clientValue.data?.map((item, idx) => {
                return (
                   <div key={idx}> {item.title} </div>

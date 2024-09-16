@@ -15,6 +15,7 @@ import { useQuery, HydrationBoundary, QueryClient, dehydrate, } from '@tanstack/
 
 
 import Test from '@/components/main/Test'
+import Dehydration from '@/store/utils/dehydration'
 
 type PostType = {
     userId: number;
@@ -52,6 +53,10 @@ const MainPage = () => {
 
     const clientValue = useQuery({ queryKey: ['poosts'], queryFn: getPosts });
 
+
+
+     // test 3
+   const test = useQuery({ queryKey: ['test']} ) 
 
     return (
         <>
@@ -98,6 +103,16 @@ const MainPage = () => {
                         {/* test 2 */}
                         <div style={{ border: "1px solid blue" }}>
                             asdsad
+                            {/* 서버 컴포넌트에서 해야되나보네 선언 자체도 */}
+                            {/* <Dehydration querykeys={["posts"]} queryFn={getPosts}>
+                                {test.data?.map((item, idx) => {
+                                    return (
+                                        <div key={item.id}>
+                                            {item.title}
+                                        </div>
+                                    )
+                                })}
+                            </Dehydration> */}
                         </div>
 
                         {/* test 3 */}

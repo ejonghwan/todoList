@@ -1,22 +1,26 @@
 import React from 'react'
 import { getPosts } from '@/store/back/querya'
-import { useQuery, HydrationBoundary, QueryClient, dehydrate, } from '@tanstack/react-query'
+import { useQuery, HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query'
 import Test from '@/components/main/Test'
+import Dehydration from '@/store/utils/dehydration'
 
 const AboutPage = async () => {
 
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-      queryKey: ["posts"],
-      queryFn: getPosts,
-  });
+  // const queryClient = new QueryClient();
+  // await queryClient.prefetchQuery({
+  //     queryKey: ["posts"],
+  //     queryFn: getPosts,
+  // });
 
 
   return (
     <div>
-      <HydrationBoundary state={dehydrate(queryClient)}>
+      {/* <HydrationBoundary state={dehydrate(queryClient)}>
         <Test />
-      </HydrationBoundary>
+      </HydrationBoundary> */}
+      <Dehydration querykeys={["posts"]} queryFn={getPosts}>
+        <Test />
+      </Dehydration>
     </div>
   )
 }
