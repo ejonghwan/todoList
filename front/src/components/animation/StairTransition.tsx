@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import Stairs from '@/lib/animation/Stairs'
+import Stairs from '@/utillity-layer/animation/Stairs'
 
 const StairTransition = () => {
 

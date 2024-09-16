@@ -7,21 +7,21 @@ import Visual from '@/components/main/Visual'
 import Pagenations from '@/components/common/pagenation/Pagenation'
 
 
-import { useDispatch, useSelector } from "react-redux";
-import { test } from "@/redux/slices/auth-slice"
+// test
+import { useUserStore } from '@/store/front/user'
+
 
 
 const MainPage = () => {
 
-    const { isLoggedIn, data } = useSelector((state: any) => state.authReducer);
-    
-    const [n, setN] = useState(1)
 
-    const dispatch = useDispatch()
-    const handleApiTest = () => {
-        setN(prev => prev + 1)
-        dispatch(test(n))
+    const { arr, removeArr, addArr } = useUserStore();
+    const [val, setVal] = useState(''); 
+    const handleAddFn = e => {
+        // console.log('??', val, arr, addArr)
+        addArr(val)
     }
+  
     return (
         <>
             <ContentWrap>
@@ -36,17 +36,20 @@ const MainPage = () => {
                 <Section>
                     sec 2
 
-                    <Pagenations 
+                    {arr.map(item => <div key={item.id}>{item.content} <button type='button' onClick={() => removeArr(item.id)}>삭제</button></div>)}
+
+                    <input type="text" value={val} onChange={e => setVal(e.target.value)}/>
+                    <button type='button' onClick={handleAddFn}>add</button>
+
+                    {/* <Pagenations 
                         allLength={91}
                         pageNum={n}
                         setPageNum={setN}
-                    />                    
+                    />                     */}
                 </Section>
                 <Section>
                     sec 3
-                    <div>isLoggedIn ?? {isLoggedIn ? 'true' : 'false'}</div>
-                    <div>{data?.map((item: { completed: boolean; id: number; title: string; userId: number }, idx: number) => <div key={idx}>{item.title}</div>)}</div>
-                    <button type="button" onClick={handleApiTest}>zzz api</button>
+                  
                 </Section>
                 <Section>
                     sec 4

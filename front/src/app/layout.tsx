@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import ReduxProvider from "@/redux/provider/provider";
 // import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "@/assets/css/common/reset.css"
 import "@/assets/css/common/fonts.css"
 import "@/assets/css/common/globals.css";
 
-import PageTransition from "@/lib/animation/PageTransition";
-import StairTransition from "@/lib/animation/StairTransition";
+import PageTransition from "@/components/animation/PageTransition";
+import StairTransition from "@/components/animation/StairTransition";
 import Header from "@/components/common/header/Header";
 import Footer from "@/components/common/footer/Footer";
 
@@ -36,7 +35,7 @@ export default function RootLayout({ children, }: Readonly<{children: React.Reac
   return (
     <html lang="ko" className={`${pretendard.variable}`} data-mode="light">
       <body className={pretendard.className}>
-        <ReduxProvider>
+
         <div id="wrap">
           <Header />
           <main id="contents">
@@ -47,7 +46,6 @@ export default function RootLayout({ children, }: Readonly<{children: React.Reac
           </main>
           <Footer />
         </div>
-        </ReduxProvider>
       </body>
     </html>
   );
