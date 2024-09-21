@@ -12,6 +12,7 @@ import PageTransition from "@/components/animation/PageTransition";
 import StairTransition from "@/components/animation/StairTransition";
 import Header from "@/components/common/header/Header";
 import Footer from "@/components/common/footer/Footer";
+import Link from "next/link";
 
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -35,12 +36,15 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({ children, modal }: Readonly<{children: React.ReactNode; modal: React.ReactNode;}>) {
   return (
     <html lang="ko" className={`${pretendard.variable}`} data-mode="light">
       <body className={pretendard.className}>
         <Providers>
           <div id="wrap">
+            <Link href="/test">???</Link>
+            modal?
+            {modal}
             <Header />
             <main id="contents">
               {/* <StairTransition /> */}
