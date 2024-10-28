@@ -18,7 +18,7 @@ const Test2 = () => {
    const clientValue = useQuery({ queryKey: ['poosts'], queryFn: getPosts });
 
 
-
+// asdasd
   
   return (
     <div>
