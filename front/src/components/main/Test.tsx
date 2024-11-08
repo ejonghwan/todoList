@@ -6,7 +6,10 @@ import Test2 from '@/components/main/Test2'
 
 const Test = () => {
 
-   
+  const abc = { a: 'asdasd' }
+  function hoho() {
+    return 'zz'
+  }
 
   return (
     <div>
