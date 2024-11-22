@@ -16,7 +16,7 @@ export const questionData = [
 * @param {function} cb - 콜백함수()
 * @returns {undefined} 
 */
-export const delay = (endSecond, cb) => {
+export const delay = (endSecond: number, cb: () => void) => {
    if(!endSecond || !cb) return console.error('인수 모두 채워주세요');
    if(typeof endSecond !== 'number' || typeof cb !== 'function' ) {console.error('인수 타입체크해주세요')}
    setTimeout(() => {
@@ -35,7 +35,7 @@ export const delay = (endSecond, cb) => {
 * @param {undefined} initialVariable - 인터벌 저장할 변수
 * @returns {undefined} 
 */
-export const timer = (endSecond, startingPoint, cb, initialVariable) => {
+export const timer = (endSecond: number, startingPoint: number, cb: (n: number) => void, initialVariable: any) => {
    if(!endSecond || !startingPoint || !cb ) return console.error('인수 모두 채워주세요');
    if(typeof endSecond !== 'number' || typeof startingPoint !== 'number' || typeof cb !== 'function' ) return console.error('인수 타입체크해주세요')
 
@@ -60,7 +60,7 @@ export const timer = (endSecond, startingPoint, cb, initialVariable) => {
 * @param {string} viewTime - case: day, hour, minute, second
 * @returns {string} 일 시간 분 초 
 */
-export const changeDate = (totalNumber, viewTime) => {
+export const changeDate = (totalNumber: number, viewTime: string) => {
    if(typeof totalNumber !== 'number') return console.error('넘버로 넣어줭')
    let day = Math.floor(Math.floor(Math.floor(totalNumber / 60) / 60) / 24);
    let hour = Math.floor(Math.floor(totalNumber / 60) / 60) % 24;
@@ -82,7 +82,7 @@ export const changeDate = (totalNumber, viewTime) => {
 * @param {string} viewTime - case: year, month, day, hour, minute, second ~까지
 * @returns {string} date object
 */
-export const changeViewDate = (date, viewTime) => {
+export const changeViewDate = (date: number, viewTime: string) => {
    const year = new Date(date).getFullYear();
    const month = new Date(date).getMonth() + 1;
    const day = new Date(date).getDate();
@@ -128,7 +128,7 @@ export const initTime = () => {
 * 현재 시간 반환 (이전)
 * @returns {string} 년 월 일 시간 분 초 
 */
-export const timeForToday = (date) => {
+export const timeForToday = (date: string) => {
    const today = new Date();
    const timeValue = new Date(date);
 
@@ -159,7 +159,7 @@ export const timeForToday = (date) => {
 * @param {Number, [Number]} matched - 비교할 넘버. 상태코드 첫숫자
 * @returns {Boolean} - 비교 후 불리언 값 반환
 */
-export const statusCode = (statusCode, matched) => {
+export const statusCode = (statusCode: number, matched: number[] | string[]) => {
    const code = (statusCode).toString();
    if(matched instanceof Array) {
        for(let i = 0; i < matched.length; i++) {
@@ -176,7 +176,7 @@ export const statusCode = (statusCode, matched) => {
 * @param {String} password - 비번
 * @returns {Boolean} - 정규식 체크 후 불리언값 리턴
 */
-export const passwordChecked = (password) => {
+export const passwordChecked = (password: string) => {
   if(typeof password !== 'string') return console.error('문자열 아님')
   const regexp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/g;
   return password.match(regexp) ? true : false;
@@ -188,7 +188,7 @@ export const passwordChecked = (password) => {
 * @param {String} str - 체크할 문자열
 * @returns {Boolean} - 정규식 체크 후 불리언값 리턴
 */
-export const englishChecked = str => {
+export const englishChecked = (str: string) => {
    if(typeof str !== 'string') return console.error('문자열 아님')
 //    const regexp = /[^a-zA-Z]/;   
   const regexp = /^[a-zA-Z0-9]*$/;   
@@ -200,7 +200,7 @@ export const englishChecked = str => {
 * @param {Number} str - 체크할 인자
 * @returns {Boolean} - 체크 후 불리언값 리턴
 */
-export const onlyNumChecked = (str) => {
+export const onlyNumChecked = (str: string) => {
    if(!str) return console.error('인자없음');
    const regexp = /^[0-9]+$/;
    return str.match(regexp) ? true : false;
@@ -208,12 +208,12 @@ export const onlyNumChecked = (str) => {
 
 /**
 * 영문 체크 (온니 영문만) 
-* @param {String Number} arg - 체크할 인자
+* @param {String} arg - 체크할 인자
 * @param {Number} length - 최대 몇글자
 * @param {String} type - 문자 or 숫자
 * @returns {Boolean} - 체크 후 불리언값 리턴
 */
-export const stringLengthChecked = (arg, len) => {
+export const stringLengthChecked = (arg: string, len: number) => {
    if(!arg && typeof arg !== 'string') return console.error('타입 확인')
    if(!arg && typeof arg !== 'number') return console.error('타입 확인')
    return arg.length === len ? true : false;
@@ -222,12 +222,12 @@ export const stringLengthChecked = (arg, len) => {
 
 /**
 * 로컬스토리지 시간설정
-* @param {Number} keyName - 로컬 키 
+* @param {Number} keyName - 로컬 키  ?? string??
 * @param {String} keyValue - 로컬 값 
 * @param {Date} exp - ms 단위 시간
 * @returns {void}
 */
-export const setWithExpire = (keyName, keyValue, exp) => {
+export const setWithExpire = (keyName: string, keyValue: string, exp: string) => {
    const obj = {
        value : keyValue,
        expire : Date.now() + exp
@@ -239,12 +239,12 @@ export const setWithExpire = (keyName, keyValue, exp) => {
 
 /**
 * 로컬스토리지 시간설정
-* @param {Number} keyName - 로컬 키 
+* @param {Number} keyName - 로컬 키  ?? string??
 * @param {String} keyValue - 로컬 값 
 * @param {Date} exp - ms 단위 시간
 * @returns {void}
 */
-export const getWithExpire = keyName => {
+export const getWithExpire = (keyName: string) => {
  const objString = localStorage.getItem(keyName);
  if(!objString) return null;
  const obj = JSON.parse(objString);
@@ -262,7 +262,7 @@ export const getWithExpire = keyName => {
 * @param {string} string - 계산할 문자열
 * @returns {number}
 */
-export const getByteLengthOfString = function(str, b, i, c){
+export const getByteLengthOfString = function(str: string, b: number, i: number, c: number) {
    for(b = i = 0; c = str.charCodeAt(i++); b += c >> 11 ? 3 : c >> 7 ? 2 : 1);
    return b;
 };
