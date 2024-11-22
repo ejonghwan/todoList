@@ -60,6 +60,23 @@ module.exports = {
         gray9: '#f7f7f7', // gray-100
         gray10: '#fbfbfb', // gray-50
         error: '#DF2101',
+
+        light: {
+          text: {
+            DEFAULT: '#212529',
+            1: '#CED4DA',
+            2: '#868E96',
+            3: '#495057',
+          },
+        },
+        dark: {
+          text: {
+            DEFAULT: '#ECECEC',
+            1: '#D9D9D9',
+            2: '#ACACAC',
+            3: '#595959',
+          },
+        },
       },
       opacity: {
         opa85: '85%',
@@ -168,9 +185,9 @@ module.exports = {
       backgroundSize: {
         custom: '300% 100%'
       },
-      darkMode: 'class',
     }
   },
+  darkMode: 'class',
   // plugins: [require('tailwindcss-animate')]
 }
 

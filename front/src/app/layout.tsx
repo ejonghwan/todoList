@@ -18,7 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang="ko" className={`${fontDefault.variable}`} data-mode="light">
+    // data-mode="light"
+    <html lang="ko" className={`${fontDefault.variable}`}>
       <body>
         <Providers>
           <div id="wrap">

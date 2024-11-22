@@ -58,13 +58,12 @@ const MainPage = () => {
      // test 3
    const test = useQuery({ queryKey: ['test']} ) 
 
-   const [isDark, setIsDark] = useState(false)
 
     return (
         <>
             <ContentWrap>
                 <Section>
-                    <div className={`size-[200px] text-white dark:bg-black bg-blue-500`}>dark</div>
+                    <div className={`size-[200px] text-white dark:bg-red-500 bg-blue-500`}>dark</div>
                     <div className='hoho_test w-[500px] border border-gray-900 title1 text-black'>
                         asdasd
                     </div>
@@ -83,15 +82,7 @@ const MainPage = () => {
                     <input type="text" value={val} onChange={e => setVal(e.target.value)}/>
                     <button type='button' onClick={handleAddFn}>add</button>
 
-                    {/* <Pagenations 
-                        allLength={91}
-                        pageNum={n}
-                        setPageNum={setN}
-                    />                     */}
-
                     <div className='flex'>
-
-
                         {/* test  1 */}
                         <div style={{ border: "1px solid red" }}>
                             {/* {isLoading && <div>loading....</div>} */}
