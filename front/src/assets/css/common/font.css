@@ -1,5 +1,7 @@
-.en { font-family: jetBrainsMono, Arial, Helvetica, sans-serif; }
 
+
+/* 사용안함 */
+/* .en { font-family: jetBrainsMono, Arial, Helvetica, sans-serif; }
 
 @font-face {
    font-family: "jetBrainsMono";
@@ -23,4 +25,10 @@
    font-family: "jetBrainsMono";
    font-weight: 800;
    src: url("../../../../public/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+} */
+
+
+
+.hoho_test {
+  color: blue;
 }

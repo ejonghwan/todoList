@@ -1,32 +1,13 @@
 import type { Metadata } from "next";
-// import { JetBrains_Mono } from "next/font/google";
 
+import { fontDefault } from '@/lib/ui/font'
 import Providers from "@/store/utils/provider";
-
-import localFont from "next/font/local";
-import "@/assets/css/common/reset.css"
-import "@/assets/css/common/fonts.css"
-import "@/assets/css/common/globals.css";
+import "@/assets/css/common/global.css";
 
 import PageTransition from "@/components/animation/PageTransition";
 import StairTransition from "@/components/animation/StairTransition";
 import Header from "@/components/common/header/Header";
 import Footer from "@/components/common/footer/Footer";
-
-
-// const inter = Inter({ subsets: ["latin"] });
-// const JetBrainsMono = JetBrains_Mono({ 
-//   subsets: ["latin"], 
-//   weight: ["100", "200", "300", "400", "500", "600" ,"700", "800"],
-//   variable: '--font-jetbrainsMono'
-// });
-
-const pretendard = localFont({
-  src: "../../public/fonts/PretendardVariable.woff2",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-pretendard",
-});
 
 
 export const metadata: Metadata = {
@@ -37,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang="ko" className={`${pretendard.variable}`} data-mode="light">
-      <body className={pretendard.className}>
+    <html lang="ko" className={`${fontDefault.variable}`} data-mode="light">
+      <body>
         <Providers>
           <div id="wrap">
             <Header />

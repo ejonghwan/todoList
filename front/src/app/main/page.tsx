@@ -58,11 +58,17 @@ const MainPage = () => {
      // test 3
    const test = useQuery({ queryKey: ['test']} ) 
 
+   const [isDark, setIsDark] = useState(false)
+
     return (
         <>
             <ContentWrap>
                 <Section>
-                    asdasd
+                    <div className={`size-[200px] text-white dark:bg-black bg-blue-500`}>dark</div>
+                    <div className='hoho_test w-[500px] border border-gray-900 title1 text-black'>
+                        asdasd
+                    </div>
+                    <button type='button' onClick={() => document.documentElement.classList.add('dark')}>dark??</button>
                     {/* sec 1
                     ?? {isAuth ? 'true' : 'false'}
                     <h1 className="text-2xl">UserName : {username}</h1>
