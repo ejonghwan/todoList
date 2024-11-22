@@ -65,7 +65,7 @@ const MainPage = () => {
                 <Section>
                     <div className={`size-[200px] text-white dark:bg-red-500 bg-blue-500`}>dark</div>
                     <div className='hoho_test w-[500px] border border-gray-900 title1 text-black'>
-                        asdasd
+                        asdasd 깃 설정 변경 
                     </div>
                     <button type='button' onClick={() => document.documentElement.classList.add('dark')}>dark??</button>
                     {/* sec 1
