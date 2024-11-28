@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     // data-mode="light"
     <html lang="ko" className={`${fontDefault.variable}`}>
@@ -27,7 +27,7 @@ export default function RootLayout({ children, }: Readonly<{children: React.Reac
             <main id="contents">
               {/* <StairTransition /> */}
               {/* <PageTransition> */}
-                {children}
+              {children}
               {/* </PageTransition> */}
             </main>
             <Footer />

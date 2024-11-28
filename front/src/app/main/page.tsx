@@ -11,6 +11,7 @@ import Pagenations from '@/components/common/pagenation/Pagenation'
 import { useUserStore } from '@/store/front/user'
 
 
+
 import { useQuery, HydrationBoundary, QueryClient, dehydrate, } from '@tanstack/react-query'
 
 
@@ -22,22 +23,26 @@ type PostType = {
     id: number;
     title: string;
     body: string;
-  };
-  
+};
+
 
 
 const MainPage = () => {
 
 
+    const [test11] = useState(() => { return 'aa' })
+
+
+
     const { arr, removeArr, addArr } = useUserStore();
-    const [val, setVal] = useState(''); 
+    const [val, setVal] = useState('');
     const handleAddFn = e => {
         // console.log('??', val, arr, addArr)
         addArr(val)
     }
 
 
-    
+
     // test 1
     const getPosts = async () => {
         const res = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -45,27 +50,31 @@ const MainPage = () => {
 
         return data;
     };
-    const { isLoading, error, data } = useQuery({ queryKey: ['posts'], queryFn: getPosts} )
-        
+
+
+
+    const { isLoading, error, data } = useQuery({ queryKey: ['posts'], queryFn: getPosts })
+
 
     //test 2 
-  
+
 
     const clientValue = useQuery({ queryKey: ['poosts'], queryFn: getPosts });
 
 
 
-     // test 3
-   const test = useQuery({ queryKey: ['test']} ) 
+    // test 3
+    const test = useQuery({ queryKey: ['test'] })
 
 
     return (
         <>
+            <div>test 11 ? {test11}</div>
             <ContentWrap>
                 <Section>
                     <div className={`size-[200px] text-white dark:bg-red-500 bg-blue-500`}>dark</div>
                     <div className='hoho_test w-[500px] border border-gray-900 title1 text-black'>
-                        asdasd 깃 설정 변경 
+                        asdasd 깃 설정 변경
                     </div>
                     <button type='button' onClick={() => document.documentElement.classList.add('dark')}>dark??</button>
                     {/* sec 1
@@ -79,7 +88,7 @@ const MainPage = () => {
 
                     {arr.map(item => <div key={item.id}>{item.content} <button type='button' onClick={() => removeArr(item.id)}>삭제</button></div>)}
 
-                    <input type="text" value={val} onChange={e => setVal(e.target.value)}/>
+                    <input type="text" value={val} onChange={e => setVal(e.target.value)} />
                     <button type='button' onClick={handleAddFn}>add</button>
 
                     <div className='flex'>
@@ -96,7 +105,7 @@ const MainPage = () => {
                         </div>
 
 
-                        
+
                         {/* test 2 */}
                         <div style={{ border: "1px solid blue" }}>
                             asdsad
@@ -120,7 +129,7 @@ const MainPage = () => {
                 </Section>
                 <Section>
                     sec 3
-                  
+
                 </Section>
                 <Section>
                     sec 4

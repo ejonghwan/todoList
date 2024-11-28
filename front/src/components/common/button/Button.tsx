@@ -5,7 +5,7 @@ import '@/assets/css/common/button.css';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     additionalProps: string;
     onClick: () => void;
-  }
+}
 
 
 interface Props {

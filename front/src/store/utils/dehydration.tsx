@@ -16,7 +16,7 @@ const Dehydration = async ({ children, querykeys = [], queryFn }: Props) => {
    await queryClient.prefetchQuery({
       queryKey: querykeys,
       queryFn: queryFn,
-  });
+   });
 
    return (
       <HydrationBoundary state={dehydrate(queryClient)}>{children}</HydrationBoundary>

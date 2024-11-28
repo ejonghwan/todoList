@@ -11,7 +11,7 @@ const getPosts = async () => {
     console.log('res?', res)
     const data = res.json();
     return data;
- };
+};
 
 /*
     ### SSG  캐싱
@@ -40,31 +40,31 @@ const getPosts = async () => {
 
 const SSR = async () => {
 
-    
+
 
     const data = await getPosts();
     console.log('data?', data)
 
-    
+
 
     return (
         <div className='flex'>
-           <div>
+            <div>
                 <h2>server side</h2>
                 <Suspense fallback={<div>ssr loading....</div>}>
-                {data.map((item: any) => {
-                    return (
-                        <div key={item.id}>{item.id}</div>
-                    )
-                })}
+                    {data.map((item: any) => {
+                        return (
+                            <div key={item.id}>{item.id}</div>
+                        )
+                    })}
                 </Suspense>
-           </div>
-           <div>
+            </div>
+            <div>
                 <h2>client side</h2>
                 <Suspense fallback={<div>csr loading....</div>}>
                     <SSRCompo data={data} />
                 </Suspense>
-           </div>
+            </div>
         </div>
     )
 }

@@ -6,6 +6,7 @@ interface Props {
 }
 
 
+
 const ContentWrap = ({ children, className }: Props) => {
   return (
     <div className={`content-wrap ${className}`}>

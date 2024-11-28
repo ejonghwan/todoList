@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPosts } from '@/store/back/querya'
+import { getPosts } from '@/store/api/user/userApi'
 import { useQuery, HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query'
 import Test from '@/components/main/Test'
 import Dehydration from '@/store/utils/dehydration'
