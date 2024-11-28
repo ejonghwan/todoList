@@ -6,6 +6,8 @@ import Section from '@/components/common/section/Section'
 import Visual from '@/components/main/Visual'
 import Pagenations from '@/components/common/pagenation/Pagenation'
 
+import { useUsers } from '@/store/queryies/user/userQueries'
+
 
 // test
 import { useUserStore } from '@/store/front/user'
@@ -53,7 +55,7 @@ const MainPage = () => {
 
 
 
-    const { isLoading, error, data } = useQuery({ queryKey: ['posts'], queryFn: getPosts })
+    // const { isLoading, error, data } = useQuery({ queryKey: ['posts'], queryFn: getPosts })
 
 
     //test 2 
@@ -64,12 +66,21 @@ const MainPage = () => {
 
 
     // test 3
-    const test = useQuery({ queryKey: ['test'] })
+    // const test = useQuery({ queryKey: ['test'] })
 
+    const { data, error, isLoading } = useUsers()
+
+    useEffect(() => {
+        console.log(data, error, isLoading)
+    }, [])
 
     return (
         <>
             <div>test 11 ? {test11}</div>
+            <Section>
+                test test
+
+            </Section>
             <ContentWrap>
                 <Section>
                     <div className={`size-[200px] text-white dark:bg-red-500 bg-blue-500`}>dark</div>
