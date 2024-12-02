@@ -6,7 +6,7 @@ import Section from '@/components/common/section/Section'
 import Visual from '@/components/main/Visual'
 import Pagenations from '@/components/common/pagenation/Pagenation'
 
-import { useUsers } from '@/store/queryies/user/userQueries'
+import { useUsers, useUser } from '@/store/queryies/user/userQueries'
 
 
 // test
@@ -35,7 +35,7 @@ const MainPage = () => {
     const [test11] = useState(() => { return 'aa' })
 
 
-
+    // zus test
     const { arr, removeArr, addArr } = useUserStore();
     const [val, setVal] = useState('');
     const handleAddFn = e => {
@@ -46,12 +46,12 @@ const MainPage = () => {
 
 
     // test 1
-    const getPosts = async () => {
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-        const data: Promise<PostType[]> = res.json();
+    // const getPosts = async () => {
+    //     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    //     const data: Promise<PostType[]> = res.json();
 
-        return data;
-    };
+    //     return data;
+    // };
 
 
 
@@ -61,7 +61,7 @@ const MainPage = () => {
     //test 2 
 
 
-    const clientValue = useQuery({ queryKey: ['poosts'], queryFn: getPosts });
+    // const clientValue = useQuery({ queryKey: ['poosts'], queryFn: getPosts });
 
 
 
@@ -69,17 +69,25 @@ const MainPage = () => {
     // const test = useQuery({ queryKey: ['test'] })
 
     const { data, error, isLoading } = useUsers()
+    const { data: data11, error: error11, isLoading: isLoading11 } = useUser("30")
 
     useEffect(() => {
         console.log(data, error, isLoading)
-    }, [])
+        console.log(data11, error11, isLoading11)
+    }, [isLoading, isLoading11])
 
     return (
         <>
             <div>test 11 ? {test11}</div>
             <Section>
                 test test
-
+                {data?.map((item, idx) => {
+                    return (
+                        <div key={idx}>
+                            {item.title}
+                        </div>
+                    )
+                })}
             </Section>
             <ContentWrap>
                 <Section>
@@ -96,7 +104,6 @@ const MainPage = () => {
                 </Section>
                 <Section>
                     sec 2
-
                     {arr.map(item => <div key={item.id}>{item.content} <button type='button' onClick={() => removeArr(item.id)}>삭제</button></div>)}
 
                     <input type="text" value={val} onChange={e => setVal(e.target.value)} />
@@ -106,13 +113,13 @@ const MainPage = () => {
                         {/* test  1 */}
                         <div style={{ border: "1px solid red" }}>
                             {/* {isLoading && <div>loading....</div>} */}
-                            {clientValue.data?.map((item, idx) => {
+                            {/* {clientValue.data?.map((item, idx) => {
                                 return (
                                     <div key={item.id} >
                                         {item.title}
                                     </div>
                                 )
-                            })}
+                            })} */}
                         </div>
 
 
@@ -134,7 +141,7 @@ const MainPage = () => {
 
                         {/* test 3 */}
                         <div>
-                            <Test />
+                            {/* <Test /> */}
                         </div>
                     </div>
                 </Section>

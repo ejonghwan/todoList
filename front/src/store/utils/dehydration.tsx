@@ -4,7 +4,8 @@ import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query
 
 interface Props {
    children: React.ReactNode,
-   querykeys: string[]
+   querykeys: Readonly<string[]>
+   // querykeys: any
    queryFn: () => {}
 }
 

@@ -18,7 +18,7 @@ export const useUser = (id: string) => {
     return useQuery({
         queryKey: userKeys.detail(id),
         queryFn: () => fetchUserById(id),
-        staleTime: 60 * 1000, // fresh -> stale, 5분이라는 기준
+        staleTime: 15000, // fresh -> stale, 5분이라는 기준
         gcTime: 300 * 1000,
     });
 }
