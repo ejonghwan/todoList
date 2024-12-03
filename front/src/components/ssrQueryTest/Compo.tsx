@@ -13,15 +13,15 @@ const Compo = () => {
     const { data: data11, error: error11, isLoading: isLoading11 } = useUser("30")
 
     useEffect(() => {
-        console.log(data, error, isLoading)
-        console.log(data11, error11, isLoading11)
-    }, [isLoading, isLoading11])
+        console.log('ssr?', data, error, isLoading)
+        console.log('csr?', data11, error11, isLoading11)
+    }, [isLoading11])
 
 
     return (
         <div>
             <h1>compo</h1>
-            {data?.map((item, idx) => {
+            {data?.map((item: { id: number, title: string }, idx: number) => {
                 return (
                     <div key={idx}>
                         {item.title}
