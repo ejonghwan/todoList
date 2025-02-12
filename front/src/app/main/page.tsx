@@ -81,13 +81,13 @@ const MainPage = () => {
             <div>test 11 ? {test11}</div>
             <Section>
                 test test
-                {data?.map((item, idx) => {
+                {/* {data?.map((item, idx) => {
                     return (
                         <div key={idx}>
                             {item.title}
                         </div>
                     )
-                })}
+                })} */}
             </Section>
             <ContentWrap>
                 <Section>

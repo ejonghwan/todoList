@@ -93,7 +93,8 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 

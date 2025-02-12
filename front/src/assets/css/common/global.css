@@ -13,14 +13,16 @@
   html {
     @apply text-black;
   }
+
   html[lang='ko'] {
     @apply font-default;
   }
+
   /* 스크롤바 생성시 웹페이지 위치 이동 방지 100vw - 스크롤바넓이 */
   body {
     @apply pc:w-[calc(100vw-13px)]
   }
-  
+
   /* tailwind reset css가 완벽하지 않아서 추가해야함 */
   input {
     @apply appearance-none outline-none focus:outline-none placeholder:text-gray4;
@@ -38,6 +40,7 @@
   em {
     @apply not-italic;
   }
+
   table caption {
     @apply size-0 text-transparent invisible opacity-0 overflow-hidden;
   }
@@ -49,6 +52,7 @@
 
 
   @screen pc {
+
     /* body scrollbar setting */
     *::-webkit-scrollbar {
       width: 13px;
@@ -86,76 +90,94 @@
   .display1 {
     @apply text-display1 leading-display1 tracking-display1
   }
+
   .title1 {
     @apply text-title1 leading-title1 tracking-title1
   }
+
   .title2 {
     @apply text-title2 leading-title2 tracking-title2
   }
+
   .title3 {
     @apply text-title3 leading-title3 tracking-title3
   }
+
   .head-line1 {
     @apply text-headline1 leading-headline1 tracking-headline1
   }
+
   .head-line2 {
     @apply text-headline2 leading-headline2 tracking-headline2
   }
-  .sub-head1  {
+
+  .sub-head1 {
     @apply text-subHead1 leading-subHead1 tracking-subHead1
   }
+
   .sub-head2 {
     @apply text-subHead2 leading-subHead2 tracking-subHead2
   }
+
   .body1 {
     @apply text-body1 leading-body1 tracking-body1
   }
+
   .body2 {
     @apply text-body2 leading-body2 tracking-body2
   }
+
   .body3 {
     @apply text-body3 leading-body3 tracking-body3
   }
+
   /* label { cursor: pointer; } */
   .label1 {
     @apply text-label1 leading-label1 tracking-label1
   }
+
   .label2 {
     @apply text-label2 leading-label2 tracking-label2
   }
+
   .label3 {
     @apply text-label3 leading-label3 tracking-label3
   }
 
   @screen pc {
     .body1 {
-    @apply text-body1 leading-body1 tracking-body1
-  }
-  .body2 {
-    @apply text-body2 leading-body2 tracking-body2
-  }
-  .body3 {
-    @apply text-body3 leading-body3 tracking-body3
-  }
+      @apply text-body1 leading-body1 tracking-body1
+    }
+
+    .body2 {
+      @apply text-body2 leading-body2 tracking-body2
+    }
+
+    .body3 {
+      @apply text-body3 leading-body3 tracking-body3
+    }
   }
 
   .caption1 {
-    @apply text-xs; /* 12px */
+    @apply text-xs;
+    /* 12px */
   }
 
   /* 1줄 처리 아래꺼 or truncate */
   .ellipsis-1 {
-    @apply block whitespace-normal text-ellipsis line-clamp-1 ;
+    @apply block whitespace-normal text-ellipsis line-clamp-1;
     display: -webkit-box;
   }
+
   /* 2줄 처리 */
   .ellipsis-2 {
-    @apply block whitespace-normal text-ellipsis line-clamp-2 ;
+    @apply block whitespace-normal text-ellipsis line-clamp-2;
     display: -webkit-box;
   }
+
   /* 4줄 처리 */
   .ellipsis-4 {
-    @apply block whitespace-normal text-ellipsis line-clamp-4 ;
+    @apply block whitespace-normal text-ellipsis line-clamp-4;
     display: -webkit-box;
   }
 
@@ -184,18 +206,24 @@
 
 
 /* scroll */
-*::-webkit-scrollbar  { 
-  width: 7px; 
+*::-webkit-scrollbar {
+  width: 7px;
   height: 7px;
   /* height: 100%; */
 }
+
 *::-webkit-scrollbar-thumb {
   height: 20%;
-  background: var(--scroll-color); /* 스크롤바의 색상 */
+  background: var(--scroll-color);
+  /* 스크롤바의 색상 */
   border-radius: 4px;
-};   
+}
+
+;
+
 *::-webkit-scrollbar-track {
-  background: var(--scroll-bg-color);  /*스크롤바 뒷 배경 색상*/
+  background: var(--scroll-bg-color);
+  /*스크롤바 뒷 배경 색상*/
 }
 
 
@@ -204,59 +232,163 @@
 /* 팝업 생성 시 화면 흔들리는거 해결 */
 /* y 쓰면 화면은 안흔들리는데 ..아래에서 팝업 클릭하면 맨 위로감 */
 /* padding-right 로 해결 */
-body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden;  padding-right: 7px; }
+body.popup_active {
+  overflow-y: scroll;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-right: 7px;
+}
 
 /* layout */
-#wrap { display: flex; width: 100%; height: 100%; flex-direction: column; }
-#header { flex: 0 0 auto; }
-#contents { flex: 1 1 100%; }
-#footer { flex: 0 0 auto; }
-.content-wrap { margin: 0 auto; width: 1100px; }
+#wrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+#header {
+  flex: 0 0 auto;
+}
+
+#contents {
+  flex: 1 1 100%;
+}
+
+#footer {
+  flex: 0 0 auto;
+}
+
+.content-wrap {
+  margin: 0 auto;
+  width: 1100px;
+}
 
 
 
 /* color */
-.bg-color1 { background-color: var(--bg-color1); }
-.bg-white { background-color: white; }
-.bg-primary { background-color: rgb(0, 102, 255); }
-.bg-test { background-color: rgb(255, 217, 0); }
+.bg-color1 {
+  background-color: var(--bg-color1);
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-primary {
+  background-color: rgb(0, 102, 255);
+}
+
+.bg-test {
+  background-color: rgb(255, 217, 0);
+}
 
 /* size */
-.h-screen { height: 100vh; } 
-.w-screen { width: 100vw; }
-.w-full { width: 100%; }
-.h-full { height: 100%; }
+.h-screen {
+  height: 100vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
 
 /* position */
-.absolute { position: absolute; }
-.relative { position: relative; }
-.fixed { position: fixed; }
-.top-0 { top: 0; }
-.left-0 { left: 0; }
-.right-0 { right: 0; }
-.z-10 { z-index: 10; }
-.z-20 { z-index: 20; }
-.z-30 { z-index: 30; }
-.z-40 { z-index: 40; }
-.z-50 { z-index: 50; }
-.z-60 { z-index: 60; }
-.z-70 { z-index: 70; }
-.z-80 { z-index: 80; }
-.z-90 { z-index: 90; }
-.z-100 { z-index: 100; }
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.z-60 {
+  z-index: 60;
+}
+
+.z-70 {
+  z-index: 70;
+}
+
+.z-80 {
+  z-index: 80;
+}
+
+.z-90 {
+  z-index: 90;
+}
+
+.z-100 {
+  z-index: 100;
+}
 
 /* display */
-.flex { display: flex; }
-.block { display: block; }
+.flex {
+  display: flex;
+}
+
+.block {
+  display: block;
+}
 
 
 /* events */
-.pointer-events-none { pointer-events: none; }
+.pointer-events-none {
+  pointer-events: none;
+}
 
 
- 
 
-.blind {position: absolute;
+
+.blind {
+  position: absolute;
   left: -99999px;
   top: -99999px;
   width: 1px;
@@ -265,22 +397,47 @@ body.popup_active { overflow-y: scroll; position: fixed; left: 0; top: 0; width:
   margin-left: -1px;
   border: 0 none !important;
   background: transparent !important;
-  color: transparent !important;}
+  color: transparent !important;
+}
 
 
 
 
 /* media query */
-.mo { display: none; }
-.pc { display: block; }
-.mo-flex { display: none; }
-.pc-flex { display: flex; }
+.mo {
+  display: none;
+}
+
+.pc {
+  display: block;
+}
+
+.mo-flex {
+  display: none;
+}
+
+.pc-flex {
+  display: flex;
+}
 
 @media (max-width: 1024px) {
-  .mo { display: block; }
-  .pc { display: none; }
-  .mo-flex { display: flex; }
-  .pc-flex { display: none; }
+  .mo {
+    display: block;
+  }
 
-  .contents-wrapper { width: 100%; }
+  .pc {
+    display: none;
+  }
+
+  .mo-flex {
+    display: flex;
+  }
+
+  .pc-flex {
+    display: none;
+  }
+
+  .contents-wrapper {
+    width: 100%;
+  }
 }
